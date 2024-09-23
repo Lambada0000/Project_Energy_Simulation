@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+
+{% block title %}Список трансформаторов{% endblock %}
+
+{% block content %}
+<h2>Список трансформаторов</h2>
+<ul>
+    {% for transformator in transformators %}
+        <li>{{ transformator.name }} — <a href="{% url 'transformator_edit' transformator.pk %}">Изменить</a> | 
+        <a href="{% url 'transformator_delete' transformator.pk %}">Удалить</a></li>
+    {% endfor %}
+</ul>
+<a href="{% url 'add_transformator' %}">Добавить новый трансформатор</a>
+{% endblock %}
